@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature converter site</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- <script src="index.js"></script> -->
+</head>
+<body>
+
+    <img src="img.jpg" alt="" height="380px ",width="100px">
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <div id="C">
+            
+            <input type="text" placeholder="Temp. in celsius" id="inputC">
+        <button id="convertCF">Convert to Fahrenheit</button>
+        <button id="convertCK">Convert to Kelvin</button>
+        <div id="result1" style="font-size: 18px;"></div>
+    </div>
+    
+       <div id="F">
+
+           <input type="text" placeholder="Temp. in Fahrenheit" id="inputF">
+           <button id="convertFC">Convert to celsius</button>
+           <button id="convertFK">Convert to Kelvin</button>
+           <div id="result2" style="font-size: 18px; "></div>
+        </div>
+        
+        <div id="K">
+            
+            <input type="text" placeholder="Temp. in Kelvin" id="inputK">
+            <button id="convertKC">Convert to celsius</button>
+            <button id="convertKF">Convert to Fahrenheit</button>
+            <div id="result3" style="font-size: 18px;"></div>
+        </div>
+        
+    </div>
+    
+</body>
+<script>
+     const aCELSIUS=document.getElementById("inputC");
+     const aFaren=document.getElementById("inputF");
+     const aKelvin=document.getElementById("inputK");
+     const resultdiv3=document.getElementById("result3");
+     const resultdiv1=document.getElementById("result1");
+     const resultdiv2=document.getElementById("result2");
+     const resultButtonCF=document.getElementById("convertCF");
+     const resultButtonCK=document.getElementById("convertCK");
+     const resultButtonFC=document.getElementById("convertFC");
+     const resultButtonFK=document.getElementById("convertFK");
+     const resultButtonKC=document.getElementById("convertKC");
+     const resultButtonKF=document.getElementById("convertKF");
+
+
+     
+     resultButtonCF.addEventListener("click",function(){
+        const c=parseFloat(aCELSIUS.value);
+        const f=(c)*9/5 + 32;
+        resultdiv1.textContent=`Temperature in Fahrenheit: ${f.toFixed(2)} °F`;
+     });
+     resultButtonCK.addEventListener("click",function(){
+        const c=parseFloat(aCELSIUS.value);
+        const k= c + 273.15;
+        resultdiv1.textContent=`Temperature in Kelvin:${k.toFixed(2)} K`;
+
+
+     });
+
+
+     resultButtonFC.addEventListener("click",function(){
+        const f=parseFloat(aFaren.value);
+        const c=(f-32)*(5/9);
+        resultdiv2.textContent=`Temperature in Celsius: ${c.toFixed(2)} °C`;
+     });
+
+     resultButtonFK.addEventListener("click",function(){
+        const f=parseFloat(aFaren.value);
+        const k=(f-32)*(5/9) + 273.15;
+        resultdiv2.textContent=`Temperature in Kelvin: ${k.toFixed(2)} K`;
+     });
+
+
+     resultButtonKC.addEventListener("click",function(){
+        const k=parseFloat(aKelvin.value);
+        const c=k-273.15;
+        resultdiv3.textContent=`Temperature in Celsius: ${c.toFixed(2)} °C`;
+     });
+    
+     resultButtonKF.addEventListener("click",function(){
+        const k=parseFloat(aKelvin.value);
+        const f=(k-273.15)*(9/5) + 32;
+        resultdiv3.textContent=`Temperature in Farenheit: ${f.toFixed(2)} °F`;
+     });
+
+
+
+    
+    
+</script>
+</html>
